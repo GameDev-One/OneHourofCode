@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/enviornment/island/Rocks/RockPlatform3.mesh" type="ArrayMesh" id=1]
+
+[sub_resource type="CylinderShape" id=4]
+radius = 2.32599
+height = 3.12011
+
+[node name="RockPlatform3" type="MeshInstance"]
+transform = Transform( 0.134021, -0.990979, 4.3317e-08, 0, -4.37114e-08, -1, 0.990979, 0.134021, -5.85823e-09, 0, -0.669089, 3.37824 )
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 4 )

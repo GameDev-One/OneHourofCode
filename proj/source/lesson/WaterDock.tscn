@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/enviornment/props/wood/barrel/Barrel.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/enviornment/props/wood/plank/Plank.material" type="Material" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 6, 0.5, 6 )
+
+[sub_resource type="ConcavePolygonShape" id=5]
+data = PoolVector3Array( -3, 0.25, 3, 3, 0.25, 3, -3, -0.25, 3, 3, 0.25, 3, 3, -0.25, 3, -3, -0.25, 3, 3, 0.25, -3, -3, 0.25, -3, 3, -0.25, -3, -3, 0.25, -3, -3, -0.25, -3, 3, -0.25, -3, 3, 0.25, 3, 3, 0.25, -3, 3, -0.25, 3, 3, 0.25, -3, 3, -0.25, -3, 3, -0.25, 3, -3, 0.25, -3, -3, 0.25, 3, -3, -0.25, -3, -3, 0.25, 3, -3, -0.25, 3, -3, -0.25, -3, 3, 0.25, 3, -3, 0.25, 3, 3, 0.25, -3, -3, 0.25, 3, -3, 0.25, -3, 3, 0.25, -3, -3, -0.25, 3, 3, -0.25, 3, -3, -0.25, -3, 3, -0.25, 3, 3, -0.25, -3, -3, -0.25, -3 )
+
+[node name="WaterDock" type="Spatial"]
+
+[node name="Platform" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00944471, 0.00704288, -0.0287218 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Platform"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform/StaticBody"]
+shape = SubResource( 5 )
+
+[node name="Barrel" type="MeshInstance" parent="Platform"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.9, 1 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="Barrel2" type="MeshInstance" parent="Platform"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2, -0.9, 1 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="Barrel3" type="MeshInstance" parent="Platform"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2, -0.9, 1 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="Barrel4" type="MeshInstance" parent="Platform"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.9, -2.75 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="Barrel5" type="MeshInstance" parent="Platform"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -2, -0.9, -2.75 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+
+[node name="Barrel6" type="MeshInstance" parent="Platform"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 2, -0.9, -2.75 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null

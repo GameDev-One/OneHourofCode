@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://source/state_machine/state_machine.gd" type="Script" id=1]
+[ext_resource path="res://source/player/camera/CameraRig.gd" type="Script" id=2]
+[ext_resource path="res://source/player/camera/States/Camera.gd" type="Script" id=3]
+[ext_resource path="res://source/player/camera/SpringArm.gd" type="Script" id=4]
+[ext_resource path="res://source/player/camera/States/Default.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape" id=1]
+height = 0.5
+
+[node name="CameraRig" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.87462, 0.48481, 0, -0.48481, 0.87462, 0, 0.5, 0.5 )
+current = true
+target = NodePath("../SpringArm/CameraTarget")
+speed = 2.0
+enabled = true
+
+[node name="AimRay" type="RayCast" parent="InterpolatedCamera"]
+transform = Transform( 1, 0, 0, 0, 0.999847, 0.0174524, 0, -0.0174524, 0.999847, 0, -0.194905, -0.679715 )
+cast_to = Vector3( 0, 0, -20 )
+collision_mask = 2
+
+[node name="SpringArm" type="SpringArm" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.87462, 0.48481, 0, -0.48481, 0.87462, 0, 0.5, 0.5 )
+collision_mask = 2
+shape = SubResource( 1 )
+spring_length = 2.0
+margin = 0.5
+script = ExtResource( 4 )
+length_range = Vector2( 2, 2 )
+
+[node name="CameraTarget" type="Position3D" parent="SpringArm"]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+initial_state = NodePath("../../CameraRig/StateMachine/Camera/Default")
+
+[node name="Camera" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="Default" type="Node" parent="StateMachine/Camera"]
+script = ExtResource( 5 )

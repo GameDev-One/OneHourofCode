@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://source/enviornment/island/RockPlatform3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://source/enviornment/island/RockPlatform1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://source/enviornment/island/RockPlatform2.tscn" type="PackedScene" id=6]
+
+[node name="RockCluster" type="Spatial"]
+
+[node name="RockPlatform1" parent="." instance=ExtResource( 5 )]
+
+[node name="RockPlatform2" parent="." instance=ExtResource( 6 )]
+
+[node name="RockPlatform3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.134021, -0.990979, 4.3317e-08, 0, -4.37114e-08, -1, 0.990979, 0.134021, -5.85823e-09, 0, -0.880379, 3.37824 )

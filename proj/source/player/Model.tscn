@@ -1,0 +1,68 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/player/model/Michelle.gltf" type="PackedScene" id=1]
+[ext_resource path="res://source/player/Model.gd" type="Script" id=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Idle-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Jump-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Walking-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Running-loop"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=5]
+blend_point_0/node = SubResource( 3 )
+blend_point_0/pos = 0.1
+blend_point_1/node = SubResource( 4 )
+blend_point_1/pos = 0.4
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "RunningJump-loop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=7]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id=13]
+states/Idle/node = SubResource( 1 )
+states/Idle/position = Vector2( 255, 134 )
+states/Jump/node = SubResource( 2 )
+states/Jump/position = Vector2( 255, 251 )
+states/MoveGround/node = SubResource( 5 )
+states/MoveGround/position = Vector2( 519, 134 )
+states/RunningJump/node = SubResource( 6 )
+states/RunningJump/position = Vector2( 519, 251 )
+transitions = [ "Idle", "MoveGround", SubResource( 7 ), "MoveGround", "Idle", SubResource( 8 ), "Idle", "Jump", SubResource( 9 ), "Jump", "Idle", SubResource( 10 ), "MoveGround", "RunningJump", SubResource( 11 ), "RunningJump", "MoveGround", SubResource( 12 ) ]
+start_node = "Idle"
+graph_offset = Vector2( -70, 36 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
+
+[node name="Michelle" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Armature" parent="." index="0"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 13 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+root_motion_track = NodePath("Armature/Skeleton:RootMotion")
+parameters/playback = SubResource( 14 )
+parameters/MoveGround/blend_position = -1.0
