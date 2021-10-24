@@ -6,7 +6,7 @@
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 6, 0.5, 6 )
 
-[sub_resource type="ConcavePolygonShape" id=5]
+[sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( -3, 0.25, 3, 3, 0.25, 3, -3, -0.25, 3, 3, 0.25, 3, 3, -0.25, 3, -3, -0.25, 3, 3, 0.25, -3, -3, 0.25, -3, 3, -0.25, -3, -3, 0.25, -3, -3, -0.25, -3, 3, -0.25, -3, 3, 0.25, 3, 3, 0.25, -3, 3, -0.25, 3, 3, 0.25, -3, 3, -0.25, -3, 3, -0.25, 3, -3, 0.25, -3, -3, 0.25, 3, -3, -0.25, -3, -3, 0.25, 3, -3, -0.25, 3, -3, -0.25, -3, 3, 0.25, 3, -3, 0.25, 3, 3, 0.25, -3, -3, 0.25, 3, -3, 0.25, -3, 3, 0.25, -3, -3, -0.25, 3, 3, -0.25, 3, -3, -0.25, -3, 3, -0.25, 3, 3, -0.25, -3, -3, -0.25, -3 )
 
 [node name="WaterDock" type="Spatial"]
@@ -19,7 +19,7 @@ material/0 = ExtResource( 2 )
 [node name="StaticBody" type="StaticBody" parent="Platform"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Platform/StaticBody"]
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Barrel" type="MeshInstance" parent="Platform"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.9, 1 )
