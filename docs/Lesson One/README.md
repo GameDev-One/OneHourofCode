@@ -1,4 +1,6 @@
 ![Cover Page](Figures/default.png)
+[#1](https://app.gitkraken.com/glo/view/card/0dad7b687ca64ab3bb18413fcaada3c1)
+[#2](https://app.gitkraken.com/glo/view/card/a16497bb1e194616b9207831df998458)
 # BREAKING DOWN 3D GAME DEVELOPMENT
 ## Overview
 ### Learn Collision Detection with Godot Game Engine
@@ -83,7 +85,7 @@ You can use the mouse to look around, and use the following buttons to move:
  - **Space** = jump
 
 ---
-### Activity 1
+## Activity 1
 a. Try to get to the end of the tunnel. What happened?
 ```
 
@@ -126,6 +128,10 @@ Once you have followed the steps above you should see a very thing blue outline 
 
 ![Platform with Trimesh Static Body Added](Figures/default.png)
 
+Now its time to check if collision works correctly in the game.
+Play the game and check if the player can jump onto the platform.
 
+---
+## Player Collision
 
 

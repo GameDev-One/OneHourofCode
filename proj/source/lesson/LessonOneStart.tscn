@@ -477,34 +477,7 @@ transform = Transform( 0.997015, -2.30092e-09, 0.0772062, 0, 0.999997, 2.98022e-
 [node name="Answers" type="Spatial" parent="Enviornment"]
 
 [node name="WaterDock" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2105, 0.526899, 46.1876 )
-
-[node name="WaterDock8" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.1908, 0.526899, 11.5669 )
-
-[node name="WaterDock9" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8994, 0.526899, 11.5669 )
-
-[node name="WaterDock10" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3661, 0.526899, 11.5669 )
-
-[node name="WaterDock2" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2105, 0.526899, 56.5644 )
-
-[node name="WaterDock3" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2105, 0.526899, 67.0794 )
-
-[node name="WaterDock4" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2105, 0.526899, 76.916 )
-
-[node name="WaterDock5" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2105, 0.526899, 87.6309 )
-
-[node name="WaterDock7" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2105, 0.526899, 96.0491 )
-
-[node name="WaterDock6" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2105, 0.526899, 105.198 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7505, 0.526899, 11.6812 )
 
 [node name="DangerZone" type="Area" parent="Enviornment/Answers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.945, 0 )
