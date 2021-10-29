@@ -1,6 +1,7 @@
 ![Cover Page](Figures/default.png)
 [#1](https://app.gitkraken.com/glo/view/card/0dad7b687ca64ab3bb18413fcaada3c1)
 [#2](https://app.gitkraken.com/glo/view/card/a16497bb1e194616b9207831df998458)
+#1
 # BREAKING DOWN 3D GAME DEVELOPMENT
 ## Overview
 ### Learn Collision Detection with Godot Game Engine
