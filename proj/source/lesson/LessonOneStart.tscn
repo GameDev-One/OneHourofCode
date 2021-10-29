@@ -93,7 +93,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4132, 2.17451, -17.6997 )
 transform = Transform( 0.00240858, 0, -0.999997, 0, 1, 0, 0.999997, 0, 0.00240858, -6.19932, 2.17451, -21.4061 )
 
 [node name="RockCluster3" parent="Enviornment/Isle1/Rocks" instance=ExtResource( 4 )]
-transform = Transform( -0.17906, 0, -0.983838, 0, 1, 0, 0.983838, 0, -0.17906, 2.89425, 2.17451, -20.5487 )
+transform = Transform( -0.17906, 0, -0.983838, 0, 1, 0, 0.983838, 0, -0.17906, 2.89426, 2.17451, -20.5487 )
 
 [node name="RockCluster4" parent="Enviornment/Isle1/Rocks" instance=ExtResource( 4 )]
 transform = Transform( -0.880245, 0, -0.474518, 0, 1, 0, 0.474518, 0, -0.880245, 9.33604, 2.17451, -16.1382 )
@@ -477,7 +477,7 @@ transform = Transform( 0.997015, -2.30092e-09, 0.0772062, 0, 0.999997, 2.98022e-
 [node name="Answers" type="Spatial" parent="Enviornment"]
 
 [node name="WaterDock" parent="Enviornment/Answers" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.7505, 0.526899, 11.6812 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.6326, 0.526899, 11.6812 )
 
 [node name="DangerZone" type="Area" parent="Enviornment/Answers"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.945, 0 )

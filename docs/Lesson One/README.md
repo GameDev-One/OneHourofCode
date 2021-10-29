@@ -32,7 +32,7 @@ Required Software:
  - Apply the understanding of collision detection in the context of a game.
  - Create and modify a game level in a true game engine (Godot Game Engine) that incorporates the use of collision detection.
 
-![Code, Design, Art, Audio & Production](Figures/default.png)
+>![Code, Design, Art, Audio & Production](Figures/default.png)
 
 ---
 ## Godot User Interface
@@ -42,13 +42,13 @@ When you first launch Godot you will see the Project Manager [Figure 1](#figure-
 
 Now you should see the Project Manager. It lets you create, remove, import, or play game projects.
 
-##### *Figure 1 - Project Manager*
-![Figure 1 - Project Manager](Figures/Figure1.png)
+>##### *Figure 1 - Project Manager*
+>![Figure 1 - Project Manager](Figures/Figure1.png)
 
-You can import existing projects using the **Import** button on the right. **Browse** for the Hour of Code folder that contains the project. Select the folder called 'proj' and open the `project.godot` file. When the folder path is correct, you'll see a green checkmark [Figure 2](#figure-2---import-existing-project). Select **Import & Edit** to see the main project.
+You can import existing projects using the **Import** button on the right. **Browse** for the Hour of Code folder that contains the project. Select the folder called `proj` and open the `project.godot` file. When the folder path is correct, you'll see a green checkmark [Figure 2](#figure-2---import-existing-project). Select **Import & Edit** to see the main project.
 
-##### *Figure 2 - Import Existing Project*
-![Figure 2 - Import Existing Project](Figures/Figure2.png)
+>##### *Figure 2 - Import Existing Project*
+>![Figure 2 - Import Existing Project](Figures/Figure2.png)
 
 **Welcome to Godot!** With your project open, you should see the Editor's Interface [Figure 3](#figure-3---godot-editor-interface) with menus along the top of the interface and panels docked along the far extremes of the interface on either side of the viewport.
  - **Scene Dock (*Green*)** lists the active scene's node structure.
@@ -57,25 +57,25 @@ You can import existing projects using the **Import** button on the right. **Bro
    - Files can be dragged and dropped onto the Filesystem Dock to add them to the project.
  - **Viewport (*Red*)** is where you can work with meshes, lights, and design levels for 3D games.
    - While the mouse is hovering over the viewport can press `Shift+F` to move around the world with Minecraft like controls. Press `Shift+F` to exit that navigation mode as well.
-     - **W** = Move Forward
-     - **A** = Move Left
-     - **S** = Move Backward
-     - **D** = Move Right
-     - **Q** = Move Down
-     - **E** = Move Up
-     - **Mouse Movement**  = Look around 
+     >- **W** = Move Forward
+     >- **A** = Move Left
+     >- **S** = Move Backward
+     >- **D** = Move Right
+     >- **Q** = Move Down
+     >- **E** = Move Up
+     >- **Mouse Movement**  = Look around 
  - **Inspector Dock (*Blue*)** is where you will edit the properties of each selected Node.
    - The term **Node** is used to identify the various objects or elements that are in a Scene.
  - **Main Menu, Workspaces, Playtest (*Purple*)** is where you will change project settings, work in 2D or 3D and begin playing the game. 
 
-##### *Figure 3 - Godot Editor Interface*
-![Figure 3 - Godot Editor Interface](Figures/Figure3.png)
+>##### *Figure 3 - Godot Editor Interface*
+>![Figure 3 - Godot Editor Interface](Figures/Figure3.png)
 
 ---
 ## Let's Play
 Let’s jump right in! Click the `Play` button at the top-right of the screen, or press `F5`. Close the window or press `F8` to return to the Editor.
 
-![Screenshot of Gameplay](Figures/default.png)
+>![Screenshot of Gameplay](Figures/default.png)
 
 You can use the mouse to look around, and use the following buttons to move:
  - **W** = move forward
@@ -99,7 +99,8 @@ b. What do you think needs to be fixed to make the game playable?
 
 ---
 ## Collision Detection
-![Player at first jump](Figures/default.png)
+>![Player at first jump](Figures/default.png)
+
 You’ll notice that your character falls through the platform in the tunnel, and lands at the bottom of the pit. This is because the platform has no collision associated with it, it is only being drawn visibly in the world. The game doesn’t yet know that the player should be able to stand on this platform. Let's create a **Static Body** for the platform to correct that bug.
 
 1. In the Filesystem Dock, find the `WaterDock.tscn` and double click to open it. This will bring up a new scene in the Viewport and show the hierarchy of nodes in the Scene Dock. If you cannot see the waterdock in the Viewport:
@@ -107,29 +108,68 @@ You’ll notice that your character falls through the platform in the tunnel, an
    2.  Hover the mouse over the Viewport 
    3.  Press `F` to bring the viewport focus to the object
 
-![WaterDock.tscn](Figures/default.png)
+>After selecting the Node you may see a Red, Blue and Green thing in the center of the object. That is called a *3D Gizmo* and we will understand how that works later in the project.
 
-2. In the Scene Dock select the `"Platform"` Node.
-3. At the top of the Viewport select the menu tab 'Mesh'.
-4. Select `Create Trimesh Static Body`.
-![Create Trimesh Static Body](Figures/default.png)
+>![WaterDock.tscn](Figures/default.png)
 
-A static body is one that is not moved by the physics engine. It participates in collision detection, but does not move in response to the collision. They are most often used for objects that are part of the environment or that do not need to have any dynamic behavior. Trimesh is the pattern Godot uses to automatically create the collision shape for the mesh.
+1. In the Scene Dock select the `"Platform"` Node.
+2. At the top of the Viewport select the menu tab 'Mesh'.
+3. Select `Create Trimesh Static Body`.
+>![Create Trimesh Static Body](Figures/default.png)
 
-There are a total of 4 types of physics bodies that Godot offers:
- - Area
- - Static
- - Rigid
- - Kinematic
-
-The **Static Body** works perfectly for our case because we do not want the `WaterDock` Node to do anymore than be a platform the player can stand on.
+> A static body is one that is not moved by the physics engine. It participates in collision detection, but does not move in response to the collision. They are most often used for objects that are part of the environment or that do not need to have any dynamic behavior. Trimesh is the pattern Godot uses to automatically create the collision shape for the mesh.
+>
+>There are a total of 4 types of physics bodies that Godot offers:
+> - Area
+> - Static
+> - Rigid
+> - Kinematic
+>
+>The **Static Body** works perfectly for our case because we do not want the `WaterDock` Node to do anymore than be a platform the player can stand on.
 
 Once you have followed the steps above you should see a very thing blue outline surrounding the platform. In the Scene Dock there will be two nodes that were added as children to the `Platform` Node. One is the `Static Body` Node and the other is the `Collision Shape` Node. Each physics body needs a collision shape as a child to define what area is being affected by physics.
 
-![Platform with Trimesh Static Body Added](Figures/default.png)
+>![Platform with Trimesh Static Body Added](Figures/default.png)
 
 Now its time to check if collision works correctly in the game.
 Play the game and check if the player can jump onto the platform.
+
+---
+## Activity 2
+a. What other objects in the game do yo believe have a Static Body?
+```
+
+
+
+```
+b. What do you think the Area, Rigid and Kinematic Bodies would be used for in game?
+```
+
+
+
+```
+---
+## Adding more Platforms with Duplicate
+
+Great work! You should have the player landing on the first platform. Now we need to complete this hallway so the player can safely reach the other side. As a Game Developer, you need to think about efficient ways to accomplish tasks. That way it will take less time to complete projects and will likely result in better projects. In this case, we are going to use a shortcut that quickly copies our platform so we can place the platforms needed to get across the hallway.
+
+1. In the Filesystem Dock find the `LessonOneStart.tscn` scene and double click to open it. 
+2. In the Scene Dock, click the arrow next to the `Environment` Node to expand it and see its children.
+3. Do the same again but for the `Answers` Node. The `WaterDock` Node we added collision to should be there.
+4. Bring the Viewport to focus on that `WaterDock`. As a reminder here are the steps to bring an object into focus on the Viewport:
+   1.  Click the `"WaterDock"` Node in the Scene dock
+   2.  Hover the mouse over the Viewport 
+   3.  Press `F` to bring the viewport focus to the object
+   > View of the object maybe obstructed by other objects in the scene. You can use the `Scroll Wheel` by **scrolling up to zoom** or **click and drag the scroll wheel to rotate**, until you have the object in view.
+5. Press `Ctrl+D` to duplicate the `WaterDock` Node. It will look like nothing has changed on the Viewport. If you look in the Scene Dock under the initial `WaterDock` you should see a new node selected called `WaterDock2`. When objects are duplciated they are placed on top of the original object that was copied.
+6. Click and drag the 3D Gizmo in the Viewport to move the `WaterDock2` Node to a new location. 
+    >![Gizmo Dragging New Object](Figures/default.png)
+
+
+Using
+the move gizmo, hold the Alt key, then click and drag on the red arrow of the gizmo to duplicate the platform down
+the hallway. You will need to let go of the Alt once you have created the duplicate, then hold it again to create a new
+duplicate. Once you have a few platforms in place, test your level to see if you can get across.
 
 ---
 ## Player Collision
