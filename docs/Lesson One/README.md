@@ -1,23 +1,33 @@
+ # BREAKING DOWN 3D GAME DEVELOPMENT
 ![Cover Page](Figures/default.png)
-[#1](https://app.gitkraken.com/glo/view/card/0dad7b687ca64ab3bb18413fcaada3c1)
-[#2](https://app.gitkraken.com/glo/view/card/a16497bb1e194616b9207831df998458)
-#1
-# BREAKING DOWN 3D GAME DEVELOPMENT
+
+## Table of Contents
+- [Overview](#overview)
+- [About](#about)
+- [Learning Enviornment](#learning-enviornment)
+- [Learning Objectives](#learning-objectives)
+- [Godot User Interface](#godot-user-interface)
+- [Let's Play](#lets-play)
+  - [Activity 1](#activity-1)
+- [Collision Detection](#collision-detection)
+  - [Activity 2](#activity-2)
+- [Adding more Platforms with Duplicate](#adding-more-platforms-with-duplicate)
+- [Player Collision](#player-collision)
+- [Showstopper Bugs](#showstopper-bugs)
+- [Building a Parkour Course](#building-a-parkour-course)
+- [Challenge](#challenge)
+- [Game Design Fun](#game-design-fun)
+- [What's Next](#whats-next)
+- [Issues](#issues)
+
+
 ## Overview
 ### Learn Collision Detection with Godot Game Engine
 In this lesson, you will learn how to build a simple parkour course to get the player through a hallway, and to a closeby island. You will learn about collision detection and how important it is in computer programming, especially game development. You will also have a chance to get familiar with navigating the Godot Game Engine user interface, more specifically the Viewport. You will explore the interface in order to modify objects to include collision detection and place objects throughout the level to develop the game world.
 
 You can make the parkour course as easy or difficult as you like. Be mindful that difficulty does not always equal fun. You may think your level is too easy to complete, but this may be because you are the designer and have played through your level many times. Be sure to take all the feedback from your play-testers very seriously, because this will make your game more enjoyable for a wider group of players. The more play-testers you work with, the more successful your game will become.
 
----
-## Learning Enviornment
-This lesson is designed as an introductory lesson on 3D game development. The lesson does not require any prior knowledge of making games. It can be used as a stand-alone lesson, or in conjunction with other activities to complete a larger project.
 
-Required Software:
- - Godot Game Engine version 3.3.x or better
- - Hour of Code Project Files
-
----
 ## About
 | LESSON TITLE    | Breaking Down 3D Game Development                |
 |-----------------|--------------------------------------------------|
@@ -27,7 +37,15 @@ Required Software:
 | CONTACT EMAIL   | gamedevone1@gmail.com                            |
 | CONTACT TWITTER | @gamedevone1                                     |
 
----
+
+## Learning Enviornment
+This lesson is designed as an introductory lesson on 3D game development. The lesson does not require any prior knowledge of making games. It can be used as a stand-alone lesson, or in conjunction with other activities to complete a larger project.
+
+Required Software:
+ - Godot Game Engine version 3.3.x or better
+ - Hour of Code Project Files
+
+
 ## Learning Objectives
  - Demonstrate an understanding of collision detection as a concept.
  - Apply the understanding of collision detection in the context of a game.
@@ -35,7 +53,7 @@ Required Software:
 
 >![Code, Design, Art, Audio & Production](Figures/default.png)
 
----
+
 ## Godot User Interface
 Before you can begin creating the game you must understand how to navigate around the Godot Game Engine.
 
@@ -72,21 +90,21 @@ You can import existing projects using the **Import** button on the right. **Bro
 >##### *Figure 3 - Godot Editor Interface*
 >![Figure 3 - Godot Editor Interface](Figures/Figure3.png)
 
----
+
 ## Let's Play
 Let’s jump right in! Click the `Play` button at the top-right of the screen, or press `F5`. Close the window or press `F8` to return to the Editor.
 
 >![Screenshot of Gameplay](Figures/default.png)
 
-You can use the mouse to look around, and use the following buttons to move:
- - **W** = move forward
- - **A** = move left
- - **S** = move right
- - **D** = move backward
- - **Space** = jump
+>You can use the mouse to look around, and use the following buttons to move:
+ >- **W** = move forward
+ >- **A** = move left
+ >- **S** = move right
+ >- **D** = move backward
+ >- **Space** = jump
 
----
-## Activity 1
+
+### Activity 1
 a. Try to get to the end of the tunnel. What happened?
 ```
 
@@ -98,7 +116,7 @@ b. What do you think needs to be fixed to make the game playable?
 
 ```
 
----
+
 ## Collision Detection
 >![Player at first jump](Figures/default.png)
 
@@ -113,11 +131,11 @@ You’ll notice that your character falls through the platform in the tunnel, an
 
 >![WaterDock.tscn](Figures/default.png)
 
-1. In the Scene Dock select the `"Platform"` Node.
-2. At the top of the Viewport select the menu tab 'Mesh'.
-3. Select `Create Trimesh Static Body`.
+2. In the Scene Dock select the `"Platform"` Node.
+3. At the top of the Viewport select the menu tab 'Mesh'.
+4. Select `Create Trimesh Static Body`.
+   
 >![Create Trimesh Static Body](Figures/default.png)
-
 > A static body is one that is not moved by the physics engine. It participates in collision detection, but does not move in response to the collision. They are most often used for objects that are part of the environment or that do not need to have any dynamic behavior. Trimesh is the pattern Godot uses to automatically create the collision shape for the mesh.
 >
 >There are a total of 4 types of physics bodies that Godot offers:
@@ -135,8 +153,8 @@ Once you have followed the steps above you should see a very thing blue outline 
 Now its time to check if collision works correctly in the game.
 Play the game and check if the player can jump onto the platform.
 
----
-## Activity 2
+
+### Activity 2
 a. What other objects in the game do yo believe have a Static Body?
 ```
 
@@ -149,7 +167,8 @@ b. What do you think the Area, Rigid and Kinematic Bodies would be used for in g
 
 
 ```
----
+
+
 ## Adding more Platforms with Duplicate
 
 Great work! You should have the player landing on the first platform. Now we need to complete this hallway so the player can safely reach the other side. As a Game Developer, you need to think about efficient ways to accomplish tasks. That way it will take less time to complete projects and will likely result in better projects. In this case, we are going to use a shortcut that quickly copies our platform so we can place the platforms needed to get across the hallway.
@@ -162,17 +181,46 @@ Great work! You should have the player landing on the first platform. Now we nee
    2.  Hover the mouse over the Viewport 
    3.  Press `F` to bring the viewport focus to the object
    > View of the object maybe obstructed by other objects in the scene. You can use the `Scroll Wheel` by **scrolling up to zoom** or **click and drag the scroll wheel to rotate**, until you have the object in view.
-5. Press `Ctrl+D` to duplicate the `WaterDock` Node. It will look like nothing has changed on the Viewport. If you look in the Scene Dock under the initial `WaterDock` you should see a new node selected called `WaterDock2`. When objects are duplciated they are placed on top of the original object that was copied.
+5. Press `Ctrl+D` to duplicate the `WaterDock` Node. It will look like nothing has changed on the Viewport. If you look in the Scene Dock under the initial `WaterDock` Node you should see a new Node selected called `WaterDock2`. When objects are duplciated they are placed on top of the original object that was copied.
 6. Click and drag the 3D Gizmo in the Viewport to move the `WaterDock2` Node to a new location. 
     >![Gizmo Dragging New Object](Figures/default.png)
+7. We can duplicate the platform a few more times to create a parkour path across the pit.
+
+Once you have a few platforms in place, test your level to see if you can get across.
+
+>![Completed Parkour Path](Figures/default.png)
 
 
-Using
-the move gizmo, hold the Alt key, then click and drag on the red arrow of the gizmo to duplicate the platform down
-the hallway. You will need to let go of the Alt once you have created the duplicate, then hold it again to create a new
-duplicate. Once you have a few platforms in place, test your level to see if you can get across.
-
----
 ## Player Collision
 
 
+## Showstopper Bugs
+### Falling into the Void
+
+
+## Building a Parkour Course
+
+
+## Challenge
+
+
+## What's Next
+
+
+## Issues
+- [ ] []()
+- [ ] [#18 Create Completed Parkour Path for Hallway screenshot](https://app.gitkraken.com/glo/view/card/eb2a0f4ea267402fbef5a887340703ed)
+- [ ] [#17 Create Gizmo Dragging New Object screenshot](https://app.gitkraken.com/glo/view/card/a2f3b3717309422296fed2b0a49b99b5)
+- [ ] [#16 Create Platform with Trimesh Static Body Added screenshot](https://app.gitkraken.com/glo/view/card/eeb3ed96d8724fe7b3b29332c7cea0e6)
+- [ ] [#15 Create Create Trimesh Static Body option screenshot](https://app.gitkraken.com/glo/view/card/656952fba9724210ace6abd805886b69)
+- [ ] [#14 Create WaterDock.tscn screenshot](https://app.gitkraken.com/glo/view/card/3ba4f139dc4e4698859f97f074341052)
+- [ ] [#13 Create Player at First Jump screenshot](https://app.gitkraken.com/glo/view/card/682731cfc64441b2a335d6cb82c66855)
+- [ ] [#12 Create Screenshot of Gameplay](https://app.gitkraken.com/glo/view/card/ed32ecf7cd2544b280f23b7d700b8f49)
+- [ ] [#11 Clip the edges off of Figure 2](https://app.gitkraken.com/glo/view/card/9e8717123b4a4e52822bc8b17dca0072)
+- [ ] [#10 Create Code, Design, Art, Audio and Production Artwork](https://app.gitkraken.com/glo/view/card/b7329181a657448d92d626166c029267)
+- [ ] [#9 Write new section What's Next](https://app.gitkraken.com/glo/view/card/5ab7734abde74e5a834f28d3c6ab51ab)
+- [ ] [#7 Write new section Challenge](https://app.gitkraken.com/glo/view/card/725a3189bde04f6aa104b6b332a607d9)
+- [ ] [#6 Write a new section Creating a Parkour Course](https://app.gitkraken.com/glo/view/card/aa362fbcc5244401b2e88e1007bb988d)
+- [ ] [#5 Write new section Showstopper Bugs](https://app.gitkraken.com/glo/view/card/06bd082118bd45e3a552f6a4706560c0) 
+- [ ] [#4 Write new section Player Collision](https://app.gitkraken.com/glo/view/card/7ce51ca7eba5402c888bc830652efcfd)
+- [ ] [#2 Create Cover Page Art](https://app.gitkraken.com/glo/view/card/a16497bb1e194616b9207831df998458)
