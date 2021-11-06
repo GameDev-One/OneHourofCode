@@ -120,7 +120,11 @@ b. What do you think needs to be fixed to make the game playable?
 ## Collision Detection
 >![Player at first jump](Figures/default.png)
 
-You’ll notice that your character falls through the platform in the tunnel, and lands at the bottom of the pit. This is because the platform has no collision associated with it, it is only being drawn visibly in the world. The game doesn’t yet know that the player should be able to stand on this platform. Let's create a **Static Body** for the platform to correct that bug.
+In game development, you often need to know when two objects in the game intersect or come into contact. This is known as **collision detection**. When a collision is detected, you typically want something to happen. This is known as **collision response**.
+
+You’ll notice that your character falls through the platform in the tunnel, and lands at the bottom of the pit. This is because the platform has no physics object associated with it. The platform is only being drawn visibly in the world, and the game doesn’t yet know that the player should be able to stand on this platform. 
+
+Let's create a **Static Body** for the platform to correct that bug.
 
 1. In the Filesystem Dock, find the `WaterDock.tscn` and double click to open it. This will bring up a new scene in the Viewport and show the hierarchy of nodes in the Scene Dock. If you cannot see the waterdock in the Viewport:
    1.  Click the `"WaterDock"` Node in the Scene dock
@@ -139,10 +143,11 @@ You’ll notice that your character falls through the platform in the tunnel, an
 > A static body is one that is not moved by the physics engine. It participates in collision detection, but does not move in response to the collision. They are most often used for objects that are part of the environment or that do not need to have any dynamic behavior. Trimesh is the pattern Godot uses to automatically create the collision shape for the mesh.
 >
 >There are a total of 4 types of physics bodies that Godot offers:
-> - Area
 > - Static
-> - Rigid
 > - Kinematic
+> - Rigid
+> - Area
+
 >
 >The **Static Body** works perfectly for our case because we do not want the `WaterDock` Node to do anymore than be a platform the player can stand on.
 
@@ -155,7 +160,7 @@ Play the game and check if the player can jump onto the platform.
 
 
 ### Activity 2
-a. What other objects in the game do yo believe have a Static Body?
+a. What other objects in the game do you believe have a Static Body?
 ```
 
 
@@ -192,6 +197,43 @@ Once you have a few platforms in place, test your level to see if you can get ac
 
 
 ## Player Collision
+Collision detection occurs between two physics bodies. In the case of the previous section, it was between the Platform and Player. You created the **Rigid Body** for the Platform but the Player already had a physics body beforehand the **Kinematic Body**.
+
+1. In the Filesystem Dock find the `Player.tscn` and open it.
+2. If needed, bring focus onto the `Player` Node.
+
+Let's take note of the Player's node structure. The player is a Kinematic Body with 4 children:
+   - `Model` is the mesh being drawn in-game for the player
+   - `CollisionShape` is a capsule shape that defines the hitbox. This is not the only shape that a CollisionShape can be. Capsules do a pretty good job of covering the entire body of the Model without any excess space.
+   - `StateMachine` controls the different actions the Player can perform such as running and jumping.
+   - `CameraRig` controls the 3rd person view and follows behind the Player as they move around the world.
+
+>![Screenshot of Player in Editor](Figures/default.png)
+
+A **Kinematic Body** detect collisions with other bodies but does not have an explicit response to colliding with another object. Instead, they must be controlled by the user via code. This is where the `StateMachine` takes control of the Player and provides the appropriate collision response while the player makes an action. After a collision, you may want the Player to bounce, slide along a wall, grab and hold an item, or alter the properties of the object it hit.
+
+>To see all of the collision shapes in the game:
+>  1. Select Debug in the Main Menu Panel
+>  2. Click Visible Collision Shapes
+>
+> This is a great debugging tool to see if your collisions are working correctly in the game. If there are a considerable amount of collision shapes in your game you may see a drop in performance when playing it. But do not worry the shapes will not show up when you turn your game into an executable.
+
+Out of all of the physics bodies, the **Kinematic Body** is best suited for player characters due to its versatility. The player will interact with many different objects in the game which will warrant a variety of responses. The other types of physics bodies would limit the type of interactions the player could have in the game.
+
+
+### Activity 3
+a. What are actions a Player take in game that would require collision?
+```
+
+
+
+```
+b. What do you think would happen if the Player used a Static Body instead of a Kinematic Body?
+```
+
+
+
+```
 
 
 ## Showstopper Bugs
@@ -209,6 +251,7 @@ Once you have a few platforms in place, test your level to see if you can get ac
 
 ## Issues
 - [ ] []()
+- [ ] [#19 Create Screenshot of Player in Editor](https://app.gitkraken.com/glo/view/card/53d72293e5f04f34b5d06ad24200f341)
 - [ ] [#18 Create Completed Parkour Path for Hallway screenshot](https://app.gitkraken.com/glo/view/card/eb2a0f4ea267402fbef5a887340703ed)
 - [ ] [#17 Create Gizmo Dragging New Object screenshot](https://app.gitkraken.com/glo/view/card/a2f3b3717309422296fed2b0a49b99b5)
 - [ ] [#16 Create Platform with Trimesh Static Body Added screenshot](https://app.gitkraken.com/glo/view/card/eeb3ed96d8724fe7b3b29332c7cea0e6)
@@ -222,5 +265,5 @@ Once you have a few platforms in place, test your level to see if you can get ac
 - [ ] [#7 Write new section Challenge](https://app.gitkraken.com/glo/view/card/725a3189bde04f6aa104b6b332a607d9)
 - [ ] [#6 Write a new section Creating a Parkour Course](https://app.gitkraken.com/glo/view/card/aa362fbcc5244401b2e88e1007bb988d)
 - [ ] [#5 Write new section Showstopper Bugs](https://app.gitkraken.com/glo/view/card/06bd082118bd45e3a552f6a4706560c0) 
-- [ ] [#4 Write new section Player Collision](https://app.gitkraken.com/glo/view/card/7ce51ca7eba5402c888bc830652efcfd)
+- [x] [#4 Write new section Player Collision](https://app.gitkraken.com/glo/view/card/7ce51ca7eba5402c888bc830652efcfd)
 - [ ] [#2 Create Cover Page Art](https://app.gitkraken.com/glo/view/card/a16497bb1e194616b9207831df998458)
