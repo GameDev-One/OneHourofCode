@@ -210,13 +210,30 @@ Let's take note of the Player's node structure. The player is a Kinematic Body w
 
 >![Screenshot of Player in Editor](Figures/default.png)
 
-A **Kinematic Body** detect collisions with other bodies but does not have an explicit response to colliding with another object. Instead, they must be controlled by the user via code. This is where the `StateMachine` takes control of the Player and provides the appropriate collision response while the player makes an action. After a collision, you may want the Player to bounce, slide along a wall, or alter the properties of the object it hit. 
+A **Kinematic Body** detect collisions with other bodies but does not have an explicit response to colliding with another object. Instead, they must be controlled by the user via code. This is where the `StateMachine` takes control of the Player and provides the appropriate collision response while the player makes an action. After a collision, you may want the Player to bounce, slide along a wall, grab and hold an item, or alter the properties of the object it hit.
 
 >To see all of the collision shapes in the game:
 >  1. Select Debug in the Main Menu Panel
 >  2. Click Visible Collision Shapes
 >
 > This is a great debugging tool to see if your collisions are working correctly in the game. If there are a considerable amount of collision shapes in your game you may see a drop in performance when playing it. But do not worry the shapes will not show up when you turn your game into an executable.
+
+Out of all of the physics bodies, the **Kinematic Body** is best suited for player characters due to its versatility. The player will interact with many different objects in the game which will warrant a variety of responses. The other types of physics bodies would limit the type of interactions the player could have in the game.
+
+
+### Activity 3
+a. What are actions a Player take in game that would require collision?
+```
+
+
+
+```
+b. What do you think would happen if the Player used a Static Body instead of a Kinematic Body?
+```
+
+
+
+```
 
 
 ## Showstopper Bugs
