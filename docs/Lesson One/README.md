@@ -118,7 +118,7 @@ b. What do you think needs to be fixed to make the game playable?
 
 
 ## Collision Detection
->![Player at first jump](Figures/default.png)
+>![Player at first jump](Figures/Figure4.png)
 
 In game development, you often need to know when two objects in the game intersect or come into contact. This is known as **collision detection**. When a collision is detected, you typically want something to happen. This is known as **collision response**.
 
