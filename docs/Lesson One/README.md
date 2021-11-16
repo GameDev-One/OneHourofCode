@@ -133,7 +133,7 @@ Let's create a **Static Body** for the platform to correct that bug.
 
 >After selecting the Node you may see a Red, Blue and Green thing in the center of the object. That is called a *3D Gizmo* and we will understand how that works later in the project.
 
->![WaterDock.tscn](Figures/default.png)
+>![WaterDock.tscn](Figures/Figure5.png)
 
 2. In the Scene Dock select the `"Platform"` Node.
 3. At the top of the Viewport select the menu tab 'Mesh'.
